@@ -1,0 +1,30 @@
+CREATE TABLE board_list(
+  bd_id VARCHAR2(6)PRIMARY KEY 
+ ,bd_name VARCHAR2(20) NOT NULL
+ ,bd_description VARCHAR(1024) NOT NULL
+);
+
+
+CREATE TABLE thread_overview(
+ bd_id VARCHAR2(6)
+,th_id VARCHAR2(15)PRIMARY KEY
+,th_name VARCHAR2(64) NOT NULL
+,th_date DATE DEFAULT sysdate NOT NULL
+,FOREIGN KEY(bd_id)REFERENCES board_list(bd_id) 
+);
+
+
+
+CREATE TABLE thread_responce(
+ bd_id VARCHAR2(6)
+,th_id VARCHAR2(15)
+,res_id VARCHAR(9) PRIMARY KEY
+,res_number NUMBER(4) NOT NULL
+               CHECK(res_number BETWEEN 1 AND 1000)
+,res_name VARCHAR2(32) DEFAULT '–¼–³‚µ‚³‚ñ'
+,res_date DATE DEFAULT sysdate NOT NULL
+,res_text VARCHAR2(1024) NOT NULL
+,FOREIGN KEY(bd_id)REFERENCES board_list(bd_id)
+,FOREIGN KEY (th_id)REFERENCES thread_overview(th_id)
+);
+
