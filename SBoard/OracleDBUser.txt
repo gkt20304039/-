@@ -1,0 +1,60 @@
+<ユーザー作成>
+user:boardowner
+pass:bdon
+<実行文>
+CREATE USER boardowner
+IDENTIFIED BY bdon
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+QUOTA 100M ON USERS;
+
+<権限の付与>
+GRANT create session, create table,
+      create view, create sequence,
+      create synonym, create public synonym
+TO boardowner;
+
+<作成済みテーブル>
+(板表)
+CREATE TABLE board_list(
+  bd_id VARCHAR2(6) PRIMARY KEY
+  ,bd_name VARCHAR2(20) NOT NULL
+  ,bd_description VARCHAR2(1024) NOT NULL
+);
+
+(スレッド表)
+CREATE TABLE thread_overview(
+   bd_id VARCHAR2(6) REFERENCES board_list(bd_id)
+  ,th_id VARCHAR2(15)
+  ,th_name VARCHAR2(64) NOT NULL
+  ,th_date DATE DEFAULT sysdate NOT NULL
+  ,PRIMARY KEY(bd_id, th_id)
+);
+
+(レス表)
+CREATE TABLE thread_response(
+   bd_id VARCHAR2(6)
+  ,th_id VARCHAR2(15)
+  ,res_id VARCHAR2(9)
+  ,res_number NUMBER(4) NOT NULL
+		       CHECK(res_number BETWEEN 1 AND 1000)
+  ,res_name VARCHAR2(32) DEFAULT '名無しさん'
+  ,res_date DATE DEFAULT sysdate NOT NULL
+  ,res_text VARCHAR2(1024) NOT NULL
+  ,FOREIGN KEY(bd_id, th_id) REFERENCES thread_overview(bd_id, th_id)
+  ,PRIMARY KEY(bd_id, th_id, res_id)
+);
+
+<作成した順序>
+//仕様変更により削除済み
+CREATE SEQUENCE RES_NUM_SEQ
+ START WITH 1
+ INCREMENT BY 1;
+
+
+<作成したデータ（板部分）>
+INSERT ALL
+ INTO board_list VALUES('news+','ニュース速報＋','この板では政治・社会ニュースをはじめ、様々なジャンルのニュースを取り扱います。')
+ INTO board_list VALUES('prog','プログラム技術','この板はプログラムを作る人のための板です。')
+ INTO board_list VALUES('nanj','なんでも実況J','猛虎弁なんて知らん ★なんでも実況可★')
+SELECT * FROM dual;

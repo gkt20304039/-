@@ -1,0 +1,21 @@
+DBAccess
+・insert
+　スレッド名列追加
+　順序廃止（select時にスレッド名でgroup byしてカウントすることでレス番取得（暫定））
+・select
+　AddResServletから閲覧しているスレッド名を引数で受け取り、
+　該当スレッド部分のレスのみselect文で抽出するようにする
+
+AddResServlet
+・doGet
+　jspの各スレッドのリンク(aタグ)にリクエストパラメータをつける
+　doGetでパラメータを受け取り
+　oracleselect()に引数として渡す
+<参考サイト>
+https://pointsandlines.jp/server-side/java/servlet-jsp-requestparameter
+
+SQL
+//スレッドごとのレス数を取得するSQL(要列変更(スレ名でGROUP BY))
+SELECT res_name, COUNT(res_name) レス数  FROM THREAD_RESPONSE GROUP BY res_name ORDER BY COUNT(res_name) ASC;
+//スレッドごとにレス番を増やすためのSQL
+SELECT MAX(res_number)+1 FROM thread_response GROUP BY th_id;

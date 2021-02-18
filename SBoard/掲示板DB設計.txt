@@ -1,0 +1,23 @@
+板
+板ID★　varchar2(6)
+板名 NN varchar2(20⇒32?)
+板説明文 NN varchar2(500⇒1024)
+
+・スレッド
+板ID（外部キー）★ varchar2(6)
+スレッドID★ number(15)
+スレッド名 NN varchar2(50⇒64)
+スレッド日時 NN（新着スレッド機能つけるなら）date
+
+・レス
+板ID（外部キー）★ varchar2(6)
+スレッドID（外部キー）★ number(15)
+レスID★ varchar2(6)
+レス番号（スレッドごとの1から1000までの通し番号）NN.CK number(4)
+レス名（コテハン：デフォルト「名無し」）NN(DEFAULT) varchar2(15⇒32)
+レス日時 NN date
+レス内容（本文）NN varchar2(500⇒1024)
+（IPアドレス⇒５ちゃん再現なら NN）
+（e-mail⇒sageなどの機能を実装したい場合）
+
+（スレッドの勢い（ランキング用））
