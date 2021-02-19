@@ -49,7 +49,7 @@
 	<servlet-mapping>
 		<servlet-name>addth</servlet-name>
 		<url-pattern>/addth</url-pattern>
-		<url-pattern>/addth?bdID=news+</url-pattern>
+		<url-pattern>/addth?bdID=newspl</url-pattern>
 		<url-pattern>/addth?bdID=prog</url-pattern>
 		<url-pattern>/addth?bdID=nanj</url-pattern>
 	</servlet-mapping>
