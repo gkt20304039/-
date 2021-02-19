@@ -14,21 +14,21 @@ public class AddThServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException {
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ThBean> threads = new ArrayList<ThBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ThDBAccess orcl=new ThDBAccess();
-		//URL‚Ìƒpƒ‰ƒ[ƒ^‚©‚ç”ÂID‚ğæ“¾‚·‚é
+		//URLã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰æ¿IDã‚’å–å¾—ã™ã‚‹
 		String bdID=req.getParameter("bdID");
-		//‰{——‚µ‚Ä‚¢‚é”Â‚ÌID‚ğŠi”[‚·‚é
+		//é–²è¦§ã—ã¦ã„ã‚‹æ¿ã®IDã‚’æ ¼ç´ã™ã‚‹
 		thisBdID = bdID;
-		//Oracle‚ÉƒAƒNƒZƒX‚µAŒ»İ‚Ü‚Å‚Ìƒf[ƒ^‚ğæ“¾‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€ç¾åœ¨ã¾ã§ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		orcl.selectThExecute(thisBdID);
 
 		threads = orcl.getUsers();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//threads‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//threadsã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("threads",threads);
 
 		String view = "/threadView";
@@ -39,41 +39,41 @@ public class AddThServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½•¶š—ñ‚ğƒNƒ‰ƒCƒAƒ“ƒg‚Å
-		//ƒGƒ“ƒR[ƒh‚µ‚½‚Æ‚«‚Ì•¶šƒR[ƒh‚ğw’è‚·‚é
-		//‚±‚ê‚ğw’è‚µ‚È‚¢‚Æ•¶š‰»‚¯‚·‚é‰Â”\«‚ª‚ ‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã§
+		//ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã—ãŸã¨ãã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹
+		//ã“ã‚Œã‚’æŒ‡å®šã—ãªã„ã¨æ–‡å­—åŒ–ã‘ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
 		req.setCharacterEncoding("Windows-31J");
 		
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½ƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		String tn=req.getParameter("thName");
 		String n=req.getParameter("resName");
 		String t=req.getParameter("resText");
 		
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ThBean> threads = new ArrayList<ThBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ThDBAccess orcl=new ThDBAccess();
 
-		//Oracle‚ÉƒAƒNƒZƒX‚µAæ“¾‚µ‚½ƒpƒ‰ƒ[ƒ^‚ğDB‚É“o˜^‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€å–å¾—ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’DBã«ç™»éŒ²ã™ã‚‹
 		orcl.setSQLAttr(tn, n, t);
 		orcl.insertThExecute(thisBdID);
 
 		threads = orcl.getUsers();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//threads‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//threadsã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("threads",threads);
 		
-		doGet(req, res);
-		//res.sendRedirect("addres");
+		//doGet(req, res);
+		res.sendRedirect("addth?bdID="+thisBdID);
 
-		//RequestDispatcherƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚Ì
-		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é
-		//ˆø”‚Í“]‘—æ‚ÌURL
+		//RequestDispatcherã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®
+		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹
+		//å¼•æ•°ã¯è»¢é€å…ˆã®URL
 		//RequestDispatcher dispatcher=
 		//	req.getRequestDispatcher("ContentsInput");
 		
-		//ƒŒƒXƒ|ƒ“ƒX‚É•Ê‚ÌƒT[ƒuƒŒƒbƒg‚Ìo—Í‚ğŠÜ‚ß‚é
+		//ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«åˆ¥ã®ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã®å‡ºåŠ›ã‚’å«ã‚ã‚‹
 		//dispatcher.forward(req,res);
 	}
 }
