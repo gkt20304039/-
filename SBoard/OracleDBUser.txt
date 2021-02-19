@@ -58,3 +58,5 @@ INSERT ALL
  INTO board_list VALUES('prog','プログラム技術','この板はプログラムを作る人のための板です。')
  INTO board_list VALUES('nanj','なんでも実況J','猛虎弁なんて知らん ★なんでも実況可★')
 SELECT * FROM dual;
+(---追加・変更---)
+UPDATE board_list SET bd_id = 'newspl' WHERE bd_name='ニュース速報＋';
