@@ -2,22 +2,22 @@
     pageEncoding="Windows-31J"
     contentType="text/html;charset=Windows-31J" %>
     
-<%--JSTL 1.1.2 core ƒ^ƒOƒ‰ƒCƒuƒ‰ƒŠ--%>
+<%--JSTL 1.1.2 core ã‚¿ã‚°ãƒ©ã‚¤ãƒ–ãƒ©ãƒª--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <html>
         <head>
-            <title>ŒfŽ¦”Âindex</title>
+            <title>æŽ²ç¤ºæ¿index</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
         </head>
         <body>
-            <h1>‚æ‚¤‚±‚»‚T‚¿‚á‚ñ‚Ë‚éi‰¼j‚Ö</h1>
-	        <h1>”Âˆê——</h1>
-	        <a href="/SBoard/addth?bdID=news+">ƒjƒ…[ƒX‘¬•ñ{</a>
-            <a href="/SBoard/addth?bdID=prog">ƒvƒƒOƒ‰ƒ~ƒ“ƒO</a>
-            <a href="/SBoard/addth?bdID=nanj">‚È‚ñ‚Å‚àŽÀ‹µJiƒWƒ…ƒsƒ^[j</a>
+            <h1>ã‚ˆã†ã“ãï¼•ã¡ã‚ƒã‚“ã­ã‚‹ï¼ˆä»®ï¼‰ã¸</h1>
+	        <h1>æ¿ä¸€è¦§</h1>
+	        <a href="/SBoard/addth?bdID=newspl">ãƒ‹ãƒ¥ãƒ¼ã‚¹é€Ÿå ±ï¼‹</a>
+            <a href="/SBoard/addth?bdID=prog">ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°</a>
+            <a href="/SBoard/addth?bdID=nanj">ãªã‚“ã§ã‚‚å®Ÿæ³Jï¼ˆã‚¸ãƒ¥ãƒ”ã‚¿ãƒ¼ï¼‰</a>
             
         </body>
     </html>
