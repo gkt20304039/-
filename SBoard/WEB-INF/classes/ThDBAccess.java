@@ -9,7 +9,7 @@ import th.*;
 class ThDBAccess extends DBAccess {
 	private String thName;
 	private String thID;
-	//ArrayList‚ğg—p
+	//ArrayListã‚’ä½¿ç”¨
     private ArrayList<ThBean> users = new ArrayList<ThBean>();
 	
 	public ArrayList<ThBean> getUsers(){
@@ -24,31 +24,36 @@ class ThDBAccess extends DBAccess {
 
 	public void oracleThInsert(String bdID) {
 		try {
-			thID = "to_char(trunc(to_number(sysdate - to_date('1970/01/01 00:00:00', 'YYYY/MM/DD HH24:MI:SS')) * (24 * 60 * 60)))";
-			//insert•¶‚P
-			sql="INSERT INTO thread_overview VALUES('" + bdID + "', " + thID + ", '" + thName + "', SYSDATE)";
-
-			//StatementƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é
+			//ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®sqlæ–‡
+			sql = "SELECT to_char(trunc(to_number(sysdate - to_date('1970/01/01 00:00:00', 'YYYY/MM/DD HH24:MI:SS')) * (24 * 60 * 60))) FROM dual";
+			//Statementã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹
 			st=cn.createStatement();
+			rs = st.executeQuery(sql);
+			if(rs.next()){
+				thID = rs.getString(1);
+			}
+			//insertæ–‡ï¼‘
+			sql="INSERT INTO thread_overview VALUES('" + bdID + "', '" + thID + "', '" + thName + "', SYSDATE)";
+
 			st.executeQuery(sql);
 
-			//insert•¶‚Qi–¼‘O‚ª“ü—Í‚³‚ê‚Ä‚¢‚È‚¢ê‡ƒfƒtƒHƒ‹ƒg–¼‚ğ“K—pj
+			//insertæ–‡ï¼’ï¼ˆåå‰ãŒå…¥åŠ›ã•ã‚Œã¦ã„ãªã„å ´åˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆåã‚’é©ç”¨ï¼‰
             if(name == ""){
-                sql="INSERT INTO THREAD_RESPONSE VALUES('" + bdID + "', " + thID +
-							 ", dbms_random.string('A',9), 1, DEFAULT , SYSDATE , '" + text +"')";
+                sql="INSERT INTO THREAD_RESPONSE VALUES('" + bdID + "', '" + thID +
+							 "', dbms_random.string('A',9), 1, DEFAULT , SYSDATE , '" + text +"')";
             } else {
-			    sql="INSERT INTO THREAD_RESPONSE VALUES('" + bdID + "', " + thID +
-							 ", dbms_random.string('A',9), 1, DEFAULT , SYSDATE , '" + text +"')";
+			    sql="INSERT INTO THREAD_RESPONSE VALUES('" + bdID + "', '" + thID +
+							 "', dbms_random.string('A',9), 1, DEFAULT , SYSDATE , '" + text +"')";
             }
 
-			//insert•¶‚Æselect•¶‚ğÀs‚µ
-			//ResultSetƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚µ‚½ƒNƒ‰ƒX‚Ì
-            //ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é
+			//insertæ–‡ã¨selectæ–‡ã‚’å®Ÿè¡Œã—
+			//ResultSetã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹ã®
+            //ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹
 			st.executeQuery(sql);
 
 		}catch(SQLException e){
 			e.printStackTrace();
-			System.out.println("SQLŠÖ˜A‚Ì—áŠO‚İ‚½‚¢B");
+			System.out.println("SQLé–¢é€£ã®ä¾‹å¤–ã¿ãŸã„ã€‚");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,26 +63,26 @@ class ThDBAccess extends DBAccess {
 		try {
 			sql=" SELECT th_id, th_name, th_date FROM thread_overview WHERE bd_id ='" + bdID + "' ORDER BY th_id ASC";
 			
-			//StatementƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é
+			//Statementã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹
 			st=cn.createStatement();
 			rs=st.executeQuery(sql);
 
 			System.out.println("TH_ID"+"\t"+"TH_NAME"+"\t"+"TH_DATE");
 			while(rs.next()){
-				//ƒJ[ƒ\ƒ‹‚ğˆês‚¾‚¯ƒXƒNƒ[ƒ‹‚µAƒf[ƒ^‚ğƒtƒFƒbƒ`‚·‚é
-				id=rs.getString (1);	//1—ñ–Ú‚Ìƒf[ƒ^‚ğæ“¾
-				name=rs.getString(2);	//2—ñ–Ú‚Ìƒf[ƒ^‚ğæ“¾
-                date=rs.getString(3);	//3—ñ–Ú‚Ìƒf[ƒ^‚ğæ“¾
+				//ã‚«ãƒ¼ã‚½ãƒ«ã‚’ä¸€è¡Œã ã‘ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã€ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚§ãƒƒãƒã™ã‚‹
+				id=rs.getString (1);	//1åˆ—ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
+				name=rs.getString(2);	//2åˆ—ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
+                date=rs.getString(3);	//3åˆ—ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
 				
-				//UserBean‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+				//UserBeanã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 				ThBean user=new ThBean();
 				user.setAllContents(id, name, date);
-				//ƒŠƒXƒg‚É’Ç‰Á‚·‚é
+				//ãƒªã‚¹ãƒˆã«è¿½åŠ ã™ã‚‹
 				users.add(user);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
-			System.out.println("SQLŠÖ˜A‚Ì—áŠO‚İ‚½‚¢B");
+			System.out.println("SQLé–¢é€£ã®ä¾‹å¤–ã¿ãŸã„ã€‚");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -86,7 +91,7 @@ class ThDBAccess extends DBAccess {
 	public void insertThExecute(String ID1) {
 
 		try{
-			//oracle‚ÉÚ‘±
+			//oracleã«æ¥ç¶š
 			oracleConnect();
 
 			//INSERT
@@ -95,7 +100,7 @@ class ThDBAccess extends DBAccess {
 			//SELECT
 			oracleThSelect(ID1);
 
-			//oracle‚©‚çØ’f
+			//oracleã‹ã‚‰åˆ‡æ–­
 			oracleDisConnect();
 
 		}catch(Exception e){
@@ -106,13 +111,13 @@ class ThDBAccess extends DBAccess {
 	public void selectThExecute(String ID) {
 
 		try{
-			//oracle‚ÉÚ‘±
+			//oracleã«æ¥ç¶š
 			oracleConnect();
 
 			//SELECT
 			oracleThSelect(ID);
 
-			//oracle‚©‚çØ’f
+			//oracleã‹ã‚‰åˆ‡æ–­
 			oracleDisConnect();
 
 		}catch(Exception e){
