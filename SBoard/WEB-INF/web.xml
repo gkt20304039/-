@@ -62,5 +62,21 @@
 		<servlet-name>ContentsList</servlet-name>
 		<url-pattern>/ContentsList</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>sarch</servlet-name>
+		<servlet-class>ThSarchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sarch</servlet-name>
+		<url-pattern>/sarch</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>rsarch</servlet-name>
+		<servlet-class>ResSarchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rsarch</servlet-name>
+		<url-pattern>/rsarch</url-pattern>
+	</servlet-mapping>
 
 </web-app>
