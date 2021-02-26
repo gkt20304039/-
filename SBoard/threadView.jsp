@@ -11,6 +11,11 @@
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
+	          <div class=sarch>
+	<form method='post' action='sarch'>
+	<p><input type='sarch' name='sarch'><input type="submit" value="ŒŸõ"></p><br>
+	</form>
+	</div>
         </head>
         <body>
             <h1>ƒXƒŒƒbƒhˆê——</h1>

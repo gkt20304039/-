@@ -12,12 +12,22 @@
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
         </head>
         <body>
-            <jsp:include page="ContentsList.jsp" flush="true" />
+        <form method='post' action='rsarch'>
+	<p><input type='rsarch' name='rsarch'><input type="submit" value="検索"></p><br>
+	</form>
+            
             <h1>レスを投稿する</h1>
             <form method='post' action='addres'>
             <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'><br>
             <textarea type='text' name='resText' placeholder='コメント内容' required></textarea><br>
             <input type='submit' value='書き込む'>
             </form>
+            
+             <c:forEach var="user" items="${users}">
+                <table>
+                    <tr class="attr"><td>${user.num}&ensp;<span>${user.name}<span></td><td>&ensp;${user.date}</td></tr>
+                    <tr><td colspan="2">${user.text}</td></tr>
+                </table>
+	        </c:forEach>
         </body>
     </html>
