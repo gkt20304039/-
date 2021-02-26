@@ -1,4 +1,4 @@
-’Ç‰Á‚µ‚½ƒtƒ@ƒCƒ‹
+è¿½åŠ ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«
 ThSarchServlet.java
 ResSarchServlet.java
 ThSarchDBAccess
@@ -6,7 +6,7 @@ ResSarchDBAccess.java
 ThSarchBean.java
 ResSarchBean.java
 
-Šù‘¶‚É’Ç‰Á‚µ‚½‚à‚Ì
+æ—¢å­˜ã«è¿½åŠ ã—ãŸã‚‚ã®
 web.xml
 threadView.jsp
 ContentsInput.jsp
