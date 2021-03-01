@@ -1,0 +1,38 @@
+body {
+    background-color: ghostwhite;
+}
+
+input {
+    margin: 10px;
+    border: solid 1px black;
+}
+
+textarea {
+    margin: 0 10px;
+    border: solid 1px black;
+    resize: none;
+    width:500px;
+    height:120px;
+}
+
+h1 {
+    margin: 0 10px;
+    color: rgb(78, 93, 109);
+    font-size: 18px;
+}
+
+table {
+    background-color: whitesmoke;
+    margin: 7px 15px;
+    box-shadow: 0.5px 0.5px rgb(202, 202, 202);
+}
+
+.attr{
+    font-size: 14px;
+}
+
+.attr span {
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+}
