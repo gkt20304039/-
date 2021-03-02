@@ -14,21 +14,21 @@ public class AddResServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException {
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ResBean> users = new ArrayList<ResBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ResDBAccess orcl=new ResDBAccess();
-		//URL‚Ìƒpƒ‰ƒ[ƒ^‚©‚ç”ÂID‚ğæ“¾‚·‚é
+		//URLã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰æ¿IDã‚’å–å¾—ã™ã‚‹
 		String thID=req.getParameter("thID");
-		//‰{——‚µ‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌID‚ğŠi”[‚·‚é
+		//é–²è¦§ã—ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®IDã‚’æ ¼ç´ã™ã‚‹
 		thisThID = thID;
-		//Oracle‚ÉƒAƒNƒZƒX‚µAæ“¾‚µ‚½ƒpƒ‰ƒ[ƒ^‚ğDB‚É“o˜^‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€å–å¾—ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’DBã«ç™»éŒ²ã™ã‚‹
 		orcl.selectResExecute(thisThID);
 
 		users = orcl.getUsers();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//users‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//usersã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("users",users);
 
 		String view = "/ContentsInput";
@@ -39,41 +39,50 @@ public class AddResServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½•¶š—ñ‚ğƒNƒ‰ƒCƒAƒ“ƒg‚Å
-		//ƒGƒ“ƒR[ƒh‚µ‚½‚Æ‚«‚Ì•¶šƒR[ƒh‚ğw’è‚·‚é
-		//‚±‚ê‚ğw’è‚µ‚È‚¢‚Æ•¶š‰»‚¯‚·‚é‰Â”\«‚ª‚ ‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã§
+		//ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã—ãŸã¨ãã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹
+		//ã“ã‚Œã‚’æŒ‡å®šã—ãªã„ã¨æ–‡å­—åŒ–ã‘ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
 		req.setCharacterEncoding("Windows-31J");
 		
-		//URL‚Ìƒpƒ‰ƒ[ƒ^‚©‚ç”ÂID‚ğæ“¾‚·‚é
+		//URLã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰æ¿IDã‚’å–å¾—ã™ã‚‹
 		String thID=req.getParameter("thID");
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½ƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		String n=req.getParameter("resName");
 		String t=req.getParameter("resText");
+		//å–å¾—ã—ãŸãƒ¬ã‚¹ã«æ”¹è¡ŒãŒå«ã¾ã‚Œã¦ã„ãŸå ´åˆ<br>ã«æ”¹è¡Œæ–‡å­—ã‚’å¤‰æ›
+		t=newLine(t);
 		
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ResBean> users = new ArrayList<ResBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ResDBAccess orcl=new ResDBAccess();
 
-		//Oracle‚ÉƒAƒNƒZƒX‚µAæ“¾‚µ‚½ƒpƒ‰ƒ[ƒ^‚ğDB‚É“o˜^‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€å–å¾—ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’DBã«ç™»éŒ²ã™ã‚‹
 		orcl.setSQLAttr(n, t);
 		orcl.insertResExecute(AddThServlet.thisBdID, thisThID);
 
 		users = orcl.getUsers();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//users‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//usersã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("users",users);
 		
 		res.sendRedirect("addres?thID="+thisThID);
 		//doGet(req, res);
-		//RequestDispatcherƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚Ì
-		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é
-		//ˆø”‚Í“]‘—æ‚ÌURL
+		//RequestDispatcherã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®
+		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹
+		//å¼•æ•°ã¯è»¢é€å…ˆã®URL
 		//RequestDispatcher dispatcher=
 		//	req.getRequestDispatcher("ContentsInput");
 		
-		//ƒŒƒXƒ|ƒ“ƒX‚É•Ê‚ÌƒT[ƒuƒŒƒbƒg‚Ìo—Í‚ğŠÜ‚ß‚é
+		//ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«åˆ¥ã®ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã®å‡ºåŠ›ã‚’å«ã‚ã‚‹
 		//dispatcher.forward(req,res);
+	}
+	
+	public String newLine(String text){		
+		if(text.indexOf("\n")>=0 || text.indexOf("\r")>=0 || text.indexOf("\r\n")>=0){
+			text = text.replaceAll("\\r\\n|\\r|\\n", "<br>");
+		}
+		return text;
 	}
 }
