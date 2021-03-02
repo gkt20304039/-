@@ -1,12 +1,12 @@
 <%@ page pageEncoding="Windows-31J"
     contentType="text/html;charset=Windows-31J" %>
     
-<%--JSTL 1.1.2 core É^ÉOÉâÉCÉuÉâÉä--%>
+<%--JSTL 1.1.2 core „Çø„Ç∞„É©„Ç§„Éñ„É©„É™--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <html>
         <head>
-            <title>ÉåÉXìäçe</title>
+            <title>„É¨„ÇπÊäïÁ®ø</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
@@ -14,16 +14,16 @@
         <body>
             <div class=sarch>
                 <form method='post' action='sarch'>
-                    <p><input type='sarch' name='resSarch'><input type="submit" value="åüçı"></p><br>
+                    <p><input type='sarch' name='resSarch'><input type="submit" value="Ê§úÁ¥¢"></p><br>
                 </form>
             </div>
 
             <jsp:include page="ContentsList.jsp" flush="true" />
-            <h1>ÉåÉXÇìäçeÇ∑ÇÈ</h1>
+            <h1>„É¨„Çπ„ÇíÊäïÁ®ø„Åô„Çã</h1>
             <form method='post' action='addres'>
-            <input type='text' name='resName' size='16'maxlength='16' placeholder='ñºëO(è»ó™â¬)'><br>
-            <textarea type='text' name='resText' placeholder='ÉRÉÅÉìÉgì‡óe' required></textarea><br>
-            <input type='submit' value='èëÇ´çûÇﬁ'>
+            <input type='text' name='resName' size='16'maxlength='16' placeholder='ÂêçÂâç(ÁúÅÁï•ÂèØ)'><br>
+            <textarea type='text' name='resText' placeholder='„Ç≥„É°„É≥„ÉàÂÜÖÂÆπ' required  wrap="hard"></textarea><br>
+            <input type='submit' value='Êõ∏„ÅçËæº„ÇÄ'>
             </form>
         </body>
     </html>
