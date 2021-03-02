@@ -54,7 +54,8 @@ $(function(){
     });
 });
 
-</script>
+
+  </script>
 
 
         </head>
@@ -63,6 +64,9 @@ $(function(){
 	
 	<center><h1>5ちゃんねる</h1>
 	
+<p class="down"><a href="#shita">投稿欄</a></p>
+
+	
 	<a href= "http://localhost:8080/SBoard/toppage" >トップページ</a>
 	<a href= "http://localhost:8080/SBoard/addth?bdID=newspl" >ニュース速報+</a>
 	<a href= "http://localhost:8080/SBoard/addth?bdID=prog" >プログラミング</a>
@@ -70,6 +74,7 @@ $(function(){
 	
 	
 	<br>
+	
 
             <div class=sarch>
                 <form method='post' action='sarch'>
@@ -78,9 +83,11 @@ $(function(){
             </div>
 	
 	<hr sizer=”5″>
+	  
 </header>
-<div class="haku">
-        	
+<div class="haku"></div>
+
+ 	
 
  
             <jsp:include page="ContentsList.jsp" flush="true" />
@@ -93,6 +100,7 @@ $(function(){
             </form>
        
      <p id="page-top"><a href="#wrap">PAGE TOP</a></p>
-    
+     <p id="shita"></p>
+    <footer></fotter>
         </body>
     </html>

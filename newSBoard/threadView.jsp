@@ -48,6 +48,7 @@ $(function(){
           <header class="sample">
 	
 	<center><h1>5ちゃんねる</h1>
+	<p class="down"><a href="#shita">投稿欄</a></p>
 	
 	<a href= "http://localhost:8080/SBoard/toppage" >トップページ</a>
 	<a href= "http://localhost:8080/SBoard/addth?bdID=newspl" >ニュース速報+</a>
@@ -64,7 +65,7 @@ $(function(){
             </div>
             <hr sizer=”5″>
       </header>
-      <div class="haku">
+      <div class="haku"></div>
             <h1>スレッド一覧</h1>
 	        
 	        <c:forEach var="thread" items="${threads}">
@@ -88,5 +89,6 @@ $(function(){
             <input type='submit' value='作成'>
             </form>
             <p id="page-top"><a href="#wrap">PAGE TOP</a></p>
+             <p id="shita"></p>
         </body>
     </html>
