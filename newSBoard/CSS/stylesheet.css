@@ -78,13 +78,30 @@ margin-top:150px;
 
 }
    
-div.scroll_button_btm a{
-    position: fixed;
+
+
+.down{
+	position: fixed;
+    margin-top: 0; 
+    margin-left: 1400;
+    width: 100vw;
+    display: flex;
+    align-items: center;        
+    
+    overflow: hidden scroll;
+}
+.down a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    padding: 30px 0;
+    text-align: center;
     display: block;
-    right:25px;
-    top:200px;
-    background: #313131;
-    color:#fff;
-    padding:20px;
-} 
+    border-radius: 5px;
+}
+.down a:hover {
+    text-decoration: none;
+    background: #999;
+}
 
