@@ -49,6 +49,14 @@
 		<servlet-name>sarchView</servlet-name>
 		<url-pattern>/sarchResult</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>resSarchView</servlet-name>
+		<jsp-file>/resSarchView.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>resSarchView</servlet-name>
+		<url-pattern>/resSarchResult</url-pattern>
+	</servlet-mapping>
 
 	
 	<servlet>
