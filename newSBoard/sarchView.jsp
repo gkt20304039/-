@@ -13,12 +13,31 @@
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
         </head>
         <body>
-            <div class=sarch>
+       	 <header class="sample">
+       	
+       	<center><h1>5ちゃんねる</h1>
+	
+	<a href= "http://localhost:8080/SBoard/toppage" >トップページ</a>
+	<a href= "http://localhost:8080/SBoard/addth?bdID=newspl" >ニュース速報+</a>
+	<a href= "http://localhost:8080/SBoard/addth?bdID=prog" >プログラミング</a>
+	<a href= "http://localhost:8080/SBoard/addth?bdID=nanj" >なんでも実況J(ジュピター)</a>
+	
+	
+	<br>
+
+           <div class=sarch>
                 <form method='post' action='sarch'>
                     <p><input type='sarch' name='thSarch'><input type="submit" value="検索"></p><br>
                 </form>
             </div>
-
+	
+	<hr sizer=”5″>
+	</center>
+</header>
+       	
+       	<div class="haku">
+            
+      
             <h1>検索結果</h1>
 	        <c:if test="${not empty threads}">
 	            <c:forEach var="thread" items="${threads}">
@@ -34,5 +53,6 @@
                     </table>
 	            </c:forEach>
             </c:if>
+            <a href="javascript:history.back()">[前のページに戻る]</a>
         </body>
     </html>
