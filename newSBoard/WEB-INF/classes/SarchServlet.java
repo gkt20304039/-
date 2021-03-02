@@ -42,7 +42,7 @@ public class SarchServlet extends HttpServlet {
 			ResDBAccess orcl = new ResDBAccess();
 			orcl.serchResExecute(resSarchWord);	
 			req.setAttribute("responses",orcl.getUsers());
-			RequestDispatcher dispatcher = req.getRequestDispatcher("sarchResult");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("resSarchResult");
 			dispatcher.forward(req,res);
 		}
 	}
