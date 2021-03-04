@@ -1,10 +1,17 @@
 body {
-    background-color: ghostwhite;
+    background-image: url("../pic/back.jpg");
+    /*background-color:#f7b977;*/
+background-repeat: repeat;
+background-attachment: fixed;
+background-position: right bottom
+
+    
 }
 
 input {
-    margin: 10px;
+    
     border: solid 1px black;
+     
 }
 
 textarea {
@@ -17,46 +24,50 @@ textarea {
 }
 
 h1 {
-    margin: 0 10px;
+    margin: 8px 10px;
     color: rgb(78, 93, 109);
-    font-size: 18px;
+    font-size: 20px;
 }
 
 table {
-    background-color: whitesmoke;
+    
     margin: 7px 15px;
-    box-shadow: 0.5px 0.5px rgb(202, 202, 202);
+   background-color: f7f7f7;
+    box-shadow:fff;
 }
 
 .attr{
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .attr span {
     font-size: 18px;
-    color: green;
+    color: 0000ff;
     font-weight: bold;
+    
 }
-/*ページトップボタン*/
+
 .button1{
 	background-color:#fff;
 	top:200px;
 	left:1500px;
-}#page-top {
+}
+/*page-topボタン*/
+#page-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 150px;
     right: 20px;
-    font-size: 77%;
+    font-size: 100%;
 }
 #page-top a {
-    background: #666;
+    background: #007fff;
     text-decoration: none;
     color: #fff;
-    width: 100px;
+    width: 80px;
     padding: 30px 0;
     text-align: center;
     display: block;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 #page-top a:hover {
     text-decoration: none;
@@ -65,43 +76,183 @@ table {
 /*ヘッダー固定*/
 .sample{
 
-     background:ghostwhite;
+     background:rgba(255,255,255,0.9);
     
     position: fixed;
     top:0px;
-    padding: 0;
-    margin:0;
+    padding: 3px;
+    
     width: 100%;
 }
+/*bodyとheaderの隙間*/
 .haku{
-margin-top:150px;
+margin-top:100px;
 
 }
    
 
-
+/*最下部に下がるボタン*/
 .down{
 	position: fixed;
-    margin-top: 0; 
-    margin-left: 1400;
-    width: 100vw;
-    display: flex;
-    align-items: center;        
+    top: 600px; 
+    right:20px;
     
-    overflow: hidden scroll;
+    display: flex;
+    font-size: 100%;
+   font-weight: bold;
+            
+    
 }
 .down a {
-    background: #666;
+    background: #007fff;
     text-decoration: none;
     color: #fff;
-    width: 100px;
+    width: 80px;
     padding: 30px 0;
     text-align: center;
     display: block;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 .down a:hover {
     text-decoration: none;
     background: #999;
 }
+/*ヘッダーボタン*/
+.sticky {
+margin-top:10;
+margin-left:15;
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #3879D9;/*左線*/
+   border-right: solid 6px #3879D9;/*左線*/
+  color: #666;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+   border-radius: 5px;
+}
+.sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+/*検索*/
+.sarch{
+	
+    margin-top: 10;
+    
+     display:inline-block;
+    float:right;
+    
+   text-align:right;
+       
+   margib-right:10;      
+   
+  
+}
+.search_container{
+border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  margin:0 30 0 0;
+  border: 1px solid #999;
+  display: block;
+  padding: 3px 10px;
+ 
+  height: 2.3em;
+  width: 265px;
+  overflow: hidden;
+   
+}
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
+  
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+  
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  position: absolute;
+  width: 3.5em;
+  height: 3.0em;
+  right:0px;
+  top: -3px;
+  outline : none;
+  margin-light:100px;
+}
+.waku{
 
+ position: fixed;
+    margin-top: -50; 
+    margin-left: 300;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+
+}
+
+
+/*送信ボックス（レス　送信）*/
+.migi{
+margin: 10 225px;
+}
+/*送信ボックス（レス　名前）*/
+
+.migi1{
+margin: 0 10px;
+}
+/*送信ボックス（スレッド　スレッドタイトル））*/
+.migi2{
+margin:  0 10px;
+}
+.box2 {
+    padding: 0;
+    margin: 2em 480;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box3 {
+    padding: 0;
+    margin: 2em 150;
+    
+    background: #FFF;
+    border: solid 2px #a9a9a9;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    background-color:#f6f6f6;
+}
+.box4 {
+    padding: 10;
+    margin: 2em 150;
+    
+    background: #FFF;
+    border: solid 2px #a9a9a9;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    background-color:ccffcc;
+}
+.moji{
+	margin:0 0 0 50px;
+}
+.kara{
+	margin:-20 0 0  50px;
+}
+.ma{
+	margin:0 0 0 1000px;
+}
+img.example1 {
+width: 120px;
+height: 50px;
+
+}
+.moji{
+font-size: 30px;
+font-weight: bold;
+}
