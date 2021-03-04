@@ -8,6 +8,7 @@
         <head>
 			        
             <title>レス投稿</title>
+            <link rel="icon" type="image/png" href="pic/fav.png">
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
@@ -55,52 +56,57 @@ $(function(){
 });
 
 
-  </script>
+</script>
 
 
-        </head>
-        <body>
-         <header class="sample">
-	
-	<center><h1>5ちゃんねる</h1>
-	
-<p class="down"><a href="#shita">投稿欄</a></p>
-
-	
-	<a href= "http://localhost:8080/SBoard/toppage" >トップページ</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=newspl" >ニュース速報+</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=prog" >プログラミング</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=nanj" >なんでも実況J(ジュピター)</a>
+</head>
+<body>
+	<header class="sample">
+	<img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1">
 	
 	
-	<br>
+		<p id="page-top"><a href="#wrap">↑</a></p>	
+		<p class="down"><a href="#shita">↓</a></p>
+			<div class="waku">
+				<a href= "http://localhost:8080/SBoard/toppage"class="sticky">トップページ</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=newspl"class="sticky">ニュース速報+</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=prog"class="sticky">プログラミング</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=nanj" class="sticky">なんでも実況J(ジュピター)</a>
+			</div>
 	
 
             <div class=sarch>
-                <form method='post' action='sarch'>
-                    <p><input type='sarch' name='resSarch'><input type="submit" value="レス検索"></p><br>
+                <form method='post' action='sarch' class="search_container">
+                    <p><input type='text' name='resSarch'size="25" placeholder="キーワード検索"><input type="submit"></p><br>
                 </form>
+                
             </div>
-	
-	<hr sizer=”5″>
-	  
-</header>
-<div class="haku"></div>
+             
+	</header>
+
+	<div class="haku"></div>
 
  	
-
+	<div class=box3>
  
             <jsp:include page="ContentsList.jsp" flush="true" />
-            <h1>レスを投稿する</h1>
+         	<hr size="10"> 
+            	<h1>レスを投稿する</h1> 
          
-            <form method='post' action='addres'>
-            <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'><br>
-            <textarea type='text'  name='resText' placeholder='コメント内容' required wrap='hard'></textarea><br>
-            <input type='submit' value='書き込む'>
-            </form>
-       
-     <p id="page-top"><a href="#wrap">PAGE TOP</a></p>
+            		<form method='post' action='addres'>
+           				<div class="migi1"> <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'></div><br>
+            			<textarea type='text'  name='resText' placeholder='コメント内容' required wrap='hard'></textarea><br>
+            			<div class="migi"><input type='submit' value='　投稿　'></div>
+            		</form>
+            
+      </div>
+    
      <p id="shita"></p>
+     
+     
+     
+     
     <footer></fotter>
-        </body>
-    </html>
+       
+</body>        
+</html>

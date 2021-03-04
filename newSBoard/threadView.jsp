@@ -8,6 +8,7 @@
     <html>
     
         <head>
+        	<link rel="icon" type="image/png" href="pic/fav.png">
             <title>スレッド一覧</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
@@ -43,52 +44,72 @@ $(function(){
     });
 });
 </script>
-        </head>
-        <body>
-          <header class="sample">
-	
-	<center><h1>5ちゃんねる</h1>
-	<p class="down"><a href="#shita">投稿欄</a></p>
-	
-	<a href= "http://localhost:8080/SBoard/toppage" >トップページ</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=newspl" >ニュース速報+</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=prog" >プログラミング</a>
-	<a href= "http://localhost:8080/SBoard/addth?bdID=nanj" >なんでも実況J(ジュピター)</a>
-	
-	
-	<br>
-        
-            <div class=sarch>
-                <form method='post' action='sarch'>
-                    <p><input type='sarch' name='thSarch'><input type="submit" value="スレッド検索"></p><br>
+</head>
+<body>
+	<header class="sample">
+	<img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1">
+		<p class="down"><a href="#shita">↓</a></p>
+			<div class="waku">
+				<a href= "http://localhost:8080/SBoard/toppage"class="sticky">トップページ</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=newspl"class="sticky">ニュース速報+</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=prog"class="sticky">プログラミング</a>
+				<a href= "http://localhost:8080/SBoard/addth?bdID=nanj" class="sticky">なんでも実況J(ジュピター)</a>
+			</div>
+			 <div class=sarch>
+				<form method='post' action='sarch' class="search_container">
+                    <p><input type='text' name='thSarch'size="25" placeholder="キーワード検索"><input type="submit"></p><br>
                 </form>
             </div>
-            <hr sizer=”5″>
-      </header>
-      <div class="haku"></div>
-            <h1>スレッド一覧</h1>
+           
+	
+	
+	</header>
+	<div class="haku"></div>
+	
+		
+                   
+					
+             <div class="box4">
+                         <h2>ランキング</h2>
+                            
+                                <p><c:forEach var="rank" items="${ranking}" varStatus="status">
+                                
+                    ${status.count}位&ensp;<a href="/SBoard/addres?thID=${rank.id}">${rank.name}(${rank.num})&ensp;更新日時：${rank.date}</a>
+                                        <br>
+                                    
+                                </c:forEach></p>
+                            </div>
+                        
+                    
+            
+            </div>
+            <div class=box3>
+            <h2>　スレッド一覧</h2>
+            <br>
 	        
 	        <c:forEach var="thread" items="${threads}">
-                <a href="/SBoard/addres?thID=${thread.id}">${thread.name}&ensp;${thread.date}</a><br>
+                <div class=kara><a href="/SBoard/addres?thID=${thread.id}">${thread.name}&ensp;${thread.date}</a></div><br>
             </c:forEach>
 
-            <!--ランキングを表示-->
-            <div class="ranking">
-                <h2>ランキング</h2>
-                <c:forEach var="rank" items="${ranking}" varStatus="status">
-                    ${status.count}位&ensp;<a href="/SBoard/addres?thID=${rank.id}">${rank.name}(${rank.num})&ensp;更新日時：${rank.date}</a>
-                <br>
-                </c:forEach>
-            </div>
+           <hr size="10">
+            
+                   
             
             <h1>スレッドを作成する</h1>
             <form method='post' action='addth'>
-            <input type='text' name='thName' size='32'maxlength='32' placeholder='スレッドタイトル'><br>
-            <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'><br>
-            <textarea type='text' name='resText' placeholder='コメント内容' required></textarea><br>
-            <input type='submit' value='作成'>
+           		<div class="migi1"> <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'></div><br>
+           		<div class="migi2"><input type='text' name='thName' size='32'maxlength='32' placeholder='スレッドタイトル'></div><br>
+            	<textarea type='text' name='resText' placeholder='コメント内容' required></textarea><br>
+            	<div class="migi"><input type='submit' value='　作成　'><div>
+            
             </form>
-            <p id="page-top"><a href="#wrap">PAGE TOP</a></p>
-             <p id="shita"></p>
-        </body>
-    </html>
+            
+            
+            <p id="page-top"><a href="#wrap">↑</a></p>
+            <p id="shita"></p>
+			</div>
+		</div>
+            
+	</div>
+	</body>
+</html>

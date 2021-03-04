@@ -18,7 +18,7 @@
 	        <c:forEach var="user" items="${users}">
                 <table>
                     <tr class="attr"><td>${user.num}&ensp;<span>${user.name}<span></td><td>&ensp;${user.date}</td></tr>
-                    <tr><td colspan="2">${user.text}</td></tr>
+                   <tr><td colspan="2">${user.text}</td></tr>
                 </table>
 	        </c:forEach>
         </body>
