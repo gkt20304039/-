@@ -7,7 +7,7 @@
     <html>
         <head>
         <link rel="icon" type="image/png" href="pic/fav.png">
-            <title>レス投稿</title>
+            <title>4ちゃんねる</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
@@ -63,7 +63,7 @@ $(function(){
 	<header class="sample">
 	
 	
-		<img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1">
+		<a href= "http://localhost:8080/SBoard/toppage"><img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1"></a>
 		<div class="waku">
 			<a href= "http://localhost:8080/SBoard/toppage"class="sticky">トップページ</a>
 			<a href= "http://localhost:8080/SBoard/addth?bdID=newspl"class="sticky">ニュース速報+</a>
@@ -89,7 +89,7 @@ $(function(){
 	<div class="haku"></div>
 
         <center> <img src="pic/ita.png" alt="4ちゃんねる" title="4ちゃんねる" class="">
-           <h1 class="moji">*ようこそ５ちゃんねる（仮）へ*</h1></center>
+           <h1 class="moji2">★ようこそ4ちゃんねる（仮）へ</h1></center>
            
      
           

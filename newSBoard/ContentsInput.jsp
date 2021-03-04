@@ -7,7 +7,7 @@
     <html>
         <head>
 			        
-            <title>ƒŒƒX“Še</title>
+            <title>4‚¿‚á‚ñ‚Ë‚é-ƒŒƒXˆê——</title>
             <link rel="icon" type="image/png" href="pic/fav.png">
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
@@ -62,7 +62,7 @@ $(function(){
 </head>
 <body>
 	<header class="sample">
-	<img src="pic/ita2.png" alt="4‚¿‚á‚ñ‚Ë‚é" title="4‚¿‚á‚ñ‚Ë‚é" class="example1">
+	<a href= "http://localhost:8080/SBoard/toppage"><img src="pic/ita2.png" alt="4‚¿‚á‚ñ‚Ë‚é" title="4‚¿‚á‚ñ‚Ë‚é" class="example1"></a>
 	
 	
 		<p id="page-top"><a href="#wrap">ª</a></p>	

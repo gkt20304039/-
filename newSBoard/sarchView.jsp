@@ -9,7 +9,7 @@
     
         <head>
         	<link rel="icon" type="image/png" href="pic/fav.png">
-            <title>スレッド一覧</title>
+            <title>4ちゃんねる-スレッド検索</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
@@ -47,7 +47,7 @@ $(function(){
 </head>
 <body>
 	<header class="sample">
-	<img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1">
+	<a href= "http://localhost:8080/SBoard/toppage"><img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1"></a>
 		<p class="down"><a href="#shita">↓</a></p>
 			<div class="waku">
 				<a href= "http://localhost:8080/SBoard/toppage"class="sticky">トップページ</a>
@@ -68,7 +68,7 @@ $(function(){
             
       <div class="box3">
             <h1>検索結果</h1>
-	        <c:if test="${not empty threads}">
+	        <div class="iti"><c:if test="${not empty threads}">
 	            <c:forEach var="thread" items="${threads}">
                     <a href="/SBoard/addres?thID=${thread.id}">${thread.name}&ensp;${thread.date}</a><br>
                 </c:forEach>
@@ -82,6 +82,7 @@ $(function(){
                     </table>
 	            </c:forEach>
             </c:if>
+            </div>
             <div class=ma><a href="javascript:history.back()">[前のページに戻る]</a></div>
             </div>
         </body>

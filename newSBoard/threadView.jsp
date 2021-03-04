@@ -9,13 +9,26 @@
     
         <head>
         	<link rel="icon" type="image/png" href="pic/fav.png">
-            <title>スレッド一覧</title>
+            <title>4ちゃんねる-スレッド一覧</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	        <link rel="stylesheet" href="CSS/stylesheet.css">
 	        	         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <script>
+    
+     $(window).scroll(function () {
+                    sessionStorage.scrollTop = $(this).scrollTop();
+                });
+                $(document).ready(function () {
+                    if (sessionStorage.scrollTop != "undefined") {
+                        $(window).scrollTop(sessionStorage.scrollTop);
+                    }
+                });
+    
+    
+    
+    
      $(function() {
     var topBtn = $('#page-top');    
     topBtn.hide();
@@ -47,7 +60,7 @@ $(function(){
 </head>
 <body>
 	<header class="sample">
-	<img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1">
+	<a href= "http://localhost:8080/SBoard/toppage"><img src="pic/ita2.png" alt="4ちゃんねる" title="4ちゃんねる" class="example1"></a>
 		<p class="down"><a href="#shita">↓</a></p>
 			<div class="waku">
 				<a href= "http://localhost:8080/SBoard/toppage"class="sticky">トップページ</a>
@@ -84,7 +97,7 @@ $(function(){
             
             </div>
             <div class=box3>
-            <h2>　スレッド一覧</h2>
+            <h2>スレッド一覧</h2>
             <br>
 	        
 	        <c:forEach var="thread" items="${threads}">
