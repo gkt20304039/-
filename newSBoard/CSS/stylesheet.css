@@ -25,14 +25,14 @@ textarea {
 
 h1 {
     margin: 8px 10px;
-    color: rgb(78, 93, 109);
+    
     font-size: 20px;
 }
 
 table {
     
     margin: 7px 15px;
-   background-color: f7f7f7;
+   background-color: fffff0;
     box-shadow:fff;
 }
 
@@ -80,7 +80,7 @@ table {
     
     position: fixed;
     top:0px;
-    padding: 3px;
+    padding: 1.5px;
     
     width: 100%;
 }
@@ -124,12 +124,12 @@ margin-left:15;
   display: inline-block;
   padding: 0.3em 0.8em;
   text-decoration: none;
-  background: #f7f7f7;
+  background: #f6f6f6;
   border-left: solid 6px #3879D9;/*左線*/
    border-right: solid 6px #3879D9;/*左線*/
   color: #666;/*文字色*/
   font-weight: bold;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.29);
    border-radius: 5px;
 }
 .sticky:active {
@@ -191,7 +191,7 @@ border-radius: 5px;
 
  position: fixed;
     margin-top: -50; 
-    margin-left: 300;
+    margin-left: 350;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -221,14 +221,15 @@ margin:  0 10px;
     border-radius: 10px;/*角の丸み*/
 }
 .box3 {
-    padding: 0;
+    padding: 10;
     margin: 2em 150;
     
     background: #FFF;
     border: solid 2px #a9a9a9;/*線*/
     border-radius: 10px;/*角の丸み*/
-    background-color:#f6f6f6;
+    background-color:#fffff0;
 }
+/*枠みどり*/
 .box4 {
     padding: 10;
     margin: 2em 150;
@@ -236,7 +237,7 @@ margin:  0 10px;
     background: #FFF;
     border: solid 2px #a9a9a9;/*線*/
     border-radius: 10px;/*角の丸み*/
-    background-color:ccffcc;
+    background-color:bbeebb;
 }
 .moji{
 	margin:0 0 0 50px;
@@ -244,15 +245,23 @@ margin:  0 10px;
 .kara{
 	margin:-20 0 0  50px;
 }
+/*戻るボタンの位置*/
 .ma{
 	margin:0 0 0 1000px;
 }
+
+/*ヘッダーアイコン*/
 img.example1 {
 width: 120px;
 height: 50px;
 
 }
-.moji{
+/*4ちゃんねる（仮）文字*/
+.moji2{
 font-size: 30px;
 font-weight: bold;
 }
+.iti{
+	margin:0 0 0 50px;
+}
+
