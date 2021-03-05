@@ -18,25 +18,25 @@ public class ResServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 	throws ServletException, IOException {
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ResBean> responses = new ArrayList<ResBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ResDBAccess orcl=new ResDBAccess();
-		//URL‚Ìƒpƒ‰ƒ[ƒ^‚©‚ç”ÂID,ƒXƒŒƒbƒhID‚ğæ“¾‚·‚é
+		//URLã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰æ¿ID,ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’å–å¾—ã™ã‚‹
 		bdID=req.getParameter("bdID");
 		thID=req.getParameter("thID");
-		//‰{——‚µ‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌID‚ğŠi”[‚·‚é
+		//é–²è¦§ã—ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®IDã‚’æ ¼ç´ã™ã‚‹
 		ThreadServlet.thisBdID = bdID;
 		thisThID = thID;
-		//‰{——‚µ‚Ä‚¢‚éƒy[ƒW‚ªƒXƒŒƒbƒhˆê——‚©ŠeƒXƒŒƒbƒh“à‚©‚ğ‚¢‚ê‚Ä‚¨‚­iheader.jsp‚ÌŒŸõ—“‚Ìˆ——pj
+		//é–²è¦§ã—ã¦ã„ã‚‹ãƒšãƒ¼ã‚¸ãŒã‚¹ãƒ¬ãƒƒãƒ‰ä¸€è¦§ã‹å„ã‚¹ãƒ¬ãƒƒãƒ‰å†…ã‹ã‚’ã„ã‚Œã¦ãŠãï¼ˆheader.jspã®æ¤œç´¢æ¬„ã®å‡¦ç†ç”¨ï¼‰
 		String thisPage = "response";
-		//Oracle‚ÉƒAƒNƒZƒX‚µAæ“¾‚µ‚½ƒpƒ‰ƒ[ƒ^‚ğDB‚É“o˜^‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€å–å¾—ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’DBã«ç™»éŒ²ã™ã‚‹
 		orcl.selectResExecute(thisThID);
 
 		responses = orcl.getResponses();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//responses‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//responsesã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("responses",responses);
 		req.setAttribute("thisPage",thisPage);
 		req.setAttribute("thName", DBAccess.thName);
@@ -49,44 +49,44 @@ public class ResServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½•¶š—ñ‚ğƒNƒ‰ƒCƒAƒ“ƒg‚Å
-		//ƒGƒ“ƒR[ƒh‚µ‚½‚Æ‚«‚Ì•¶šƒR[ƒh‚ğw’è‚·‚é
-		//‚±‚ê‚ğw’è‚µ‚È‚¢‚Æ•¶š‰»‚¯‚·‚é‰Â”\«‚ª‚ ‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã§
+		//ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã—ãŸã¨ãã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹
+		//ã“ã‚Œã‚’æŒ‡å®šã—ãªã„ã¨æ–‡å­—åŒ–ã‘ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
 		req.setCharacterEncoding("Windows-31J");		
 
-		//‰{——‚µ‚Ä‚¢‚é”Â‚ÌID‚ğŠi”[‚·‚é
+		//é–²è¦§ã—ã¦ã„ã‚‹æ¿ã®IDã‚’æ ¼ç´ã™ã‚‹
 		if(thID!=null){thisThID = thID;}
 		if(bdID!=null){ThreadServlet.thisBdID = bdID;}
-		//POST—v‹‚É‚æ‚Á‚Ä‘—M‚³‚ê‚½ƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é
+		//POSTè¦æ±‚ã«ã‚ˆã£ã¦é€ä¿¡ã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		String n=req.getParameter("resName");
 		String t=req.getParameter("resText");
-		//æ“¾‚µ‚½ƒŒƒX‚É‰üs‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½ê‡<br>‚É‰üs•¶š‚ğ•ÏŠ·
+		//å–å¾—ã—ãŸãƒ¬ã‚¹ã«æ”¹è¡ŒãŒå«ã¾ã‚Œã¦ã„ãŸå ´åˆ<br>ã«æ”¹è¡Œæ–‡å­—ã‚’å¤‰æ›
 		t=newLine(t);
 		t=reply(t);
-		//ArrayList‚ğg—p
+		//ArrayListã‚’ä½¿ç”¨
 		ArrayList<ResBean> responses = new ArrayList<ResBean>();
-		//DBAccess‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		//DBAccessã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		ResDBAccess orcl=new ResDBAccess();
 		
-		//Oracle‚ÉƒAƒNƒZƒX‚µAæ“¾‚µ‚½ƒpƒ‰ƒ[ƒ^‚ğDB‚É“o˜^‚·‚é
+		//Oracleã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã€å–å¾—ã—ãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’DBã«ç™»éŒ²ã™ã‚‹
 		orcl.setSQLAttr(n, t);
 		orcl.insertResExecute(ThreadServlet.thisBdID, thisThID);
 
 		responses = orcl.getResponses();
 
-		//HttpServletRequest‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚É
-		//responses‚Æ‚¢‚¤–¼‘O‚Åƒf[ƒ^‚ğ“o˜^‚·‚é
+		//HttpServletRequestã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«
+		//responsesã¨ã„ã†åå‰ã§ãƒ‡ãƒ¼ã‚¿ã‚’ç™»éŒ²ã™ã‚‹
 		req.setAttribute("responses",responses);
 		
 		res.sendRedirect("addres?thID="+thisThID+"&bdID="+ThreadServlet.thisBdID);
 		//doGet(req, res);
-		//RequestDispatcherƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚Ì
-		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é
-		//ˆø”‚Í“]‘—æ‚ÌURL
+		//RequestDispatcherã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®
+		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹
+		//å¼•æ•°ã¯è»¢é€å…ˆã®URL
 		//RequestDispatcher dispatcher=
 		//	req.getRequestDispatcher("ContentsInput");
 		
-		//ƒŒƒXƒ|ƒ“ƒX‚É•Ê‚ÌƒT[ƒuƒŒƒbƒg‚Ìo—Í‚ğŠÜ‚ß‚é
+		//ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«åˆ¥ã®ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã®å‡ºåŠ›ã‚’å«ã‚ã‚‹
 		//dispatcher.forward(req,res);
 	}
 	protected String newLine(String text){		
@@ -97,7 +97,7 @@ public class ResServlet extends HttpServlet {
 	}
 	protected String reply(String text){
 		if(text.indexOf(">>")>=0 && text.indexOf(">>")<=1){
-			String repText = String.join("",text.split(">>[0-999]"));
+			String repText = String.join("",text.split(">>[0-9]{1,3}"));
 			String repNum = text.substring(text.indexOf(">>"), text.indexOf(repText));
 			text = text.replace(repNum, "<a href=''#" + repNum + "''> " + repNum + "</a>");
 		}
