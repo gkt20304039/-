@@ -1,4 +1,4 @@
-package th;
+/* package th;
 
 public class BdBean extends UserBean {
 	public void setAllContents(String id, int num, String name, String date, String text){
@@ -6,4 +6,4 @@ public class BdBean extends UserBean {
 		setName(name);
 		setText(text);
 	}
-}
+} */

@@ -1,11 +1,11 @@
 package th;
 
 public class ResBean extends UserBean {
-    public void setAllContents(String id, int num, String name, String date, String text){
+    public void setAllContents(String id, String name, String date, int num, String text){
         setId(id);
-        setNum(num);
         setName(name);
         setDate(date);
+        setNum(num);
         setText(text);
     }
 }

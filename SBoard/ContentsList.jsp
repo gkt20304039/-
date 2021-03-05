@@ -10,23 +10,16 @@
             <title>レス投稿</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-	        <link rel="stylesheet" href="CSS/stylesheet.css">
+	        <link rel="stylesheet" href="./CSS/stylesheet.css">
         </head>
         <body>
-            <h1>スレッド名</h1>
+            <h1>${thName}</h1>
 	        
-	        <c:forEach var="user" items="${users}">
+	        <c:forEach var="res" items="${responses}">
                 <table>
-                    <tr class="attr"><td>${user.num}&ensp;<span>${user.name}<span></td><td>&ensp;${user.date}</td></tr>
-                    <tr><td colspan="2">${user.text}</td></tr>
+                    <tr><td><p class="attr" id=">>${res.num}">${res.num}&ensp;<span>${res.name}</span>&ensp;${res.date}<p></td></tr>
+                    <tr><td>${res.text}</td></tr>
                 </table>
 	        </c:forEach>
-	        </form>
-            <h1>レスを投稿する</h1>
-            <form method='post' action='addres'>
-            <input type='text' name='resName' size='16'maxlength='16' placeholder='名前(省略可)'><br>
-            <textarea type='text' name='resText' placeholder='コメント内容' required></textarea><br>
-            <input type='submit' value='書き込む'>
-            </form>
         </body>
     </html>

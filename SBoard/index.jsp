@@ -2,22 +2,36 @@
     pageEncoding="Windows-31J"
     contentType="text/html;charset=Windows-31J" %>
     
-<%--JSTL 1.1.2 core ã‚¿ã‚°ãƒ©ã‚¤ãƒ–ãƒ©ãƒª--%>
+<%--JSTL 1.1.2 core ƒ^ƒOƒ‰ƒCƒuƒ‰ƒŠ--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <html>
         <head>
-            <title>æ²ç¤ºæ¿index</title>
+            <link rel="icon" type="image/png" href="pic/fav.png">
+            <title>‚S‚¿‚á‚ñ‚Ë‚é</title>
             <!--CSS-->
 	        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-	        <link rel="stylesheet" href="CSS/stylesheet.css">
+	        <link rel="stylesheet" href="./CSS/stylesheet.css">
         </head>
         <body>
-            <h1>ã‚ˆã†ã“ãï¼•ã¡ã‚ƒã‚“ã­ã‚‹ï¼ˆä»®ï¼‰ã¸</h1>
-	        <h1>æ¿ä¸€è¦§</h1>
-	        <a href="/SBoard/addth?bdID=newspl">ãƒ‹ãƒ¥ãƒ¼ã‚¹é€Ÿå ±ï¼‹</a>
-            <a href="/SBoard/addth?bdID=prog">ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°</a>
-            <a href="/SBoard/addth?bdID=nanj">ãªã‚“ã§ã‚‚å®Ÿæ³Jï¼ˆã‚¸ãƒ¥ãƒ”ã‚¿ãƒ¼ï¼‰</a>
+            <jsp:include page="header.jsp" flush="true" />
+            <div class="haku"></div>
+            <div class="top-h1">
+                <img src="pic/ita3.png" alt="4‚¿‚á‚ñ‚Ë‚é" title="4‚¿‚á‚ñ‚Ë‚é">
+                <h1 class="moji2">š‚æ‚¤‚±‚»‚S‚¿‚á‚ñ‚Ë‚é‚Ö</h1>
+            </div>
+	        <!-- <h1>”Âˆê——</h1>
+	        <a href="/SBoard/addth?bdID=newspl">ƒjƒ…[ƒX‘¬•ñ{</a>
+            <a href="/SBoard/addth?bdID=prog">ƒvƒƒOƒ‰ƒ~ƒ“ƒO</a>
+            <a href="/SBoard/addth?bdID=nanj">‚È‚ñ‚Å‚àÀ‹µJiƒWƒ…ƒsƒ^[j</a> -->
             
+            <!--ƒ‰ƒ“ƒLƒ“ƒO‚ğ•\¦-->
+            <div class="box4">
+                <h2>ƒ‰ƒ“ƒLƒ“ƒO</h2>
+                <c:forEach var="rank" items="${ranking}" varStatus="status">
+                    ${status.count}ˆÊ&ensp;<a href="/SBoard/addres?thID=${rank.id}&bdID=${rank.bdID}">${rank.name}(${rank.num})&ensp;XV“úF${rank.date}</a>
+                    <br>
+                </c:forEach>
+            </div>
         </body>
     </html>

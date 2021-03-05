@@ -31,10 +31,29 @@
 		<servlet-name>ContentsInput</servlet-name>
 		<url-pattern>/ContentsInput</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ContentsList</servlet-name>
+		<jsp-file>/ContentsList.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ContentsList</servlet-name>
+		<url-pattern>/ContentsList</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sarchView</servlet-name>
+		<jsp-file>/sarchView.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sarchView</servlet-name>
+		<url-pattern>/sarchResult</url-pattern>
+	</servlet-mapping>
+
 	
 	<servlet>
 		<servlet-name>addres</servlet-name>
-		<servlet-class>AddResServlet</servlet-class>
+		<servlet-class>ResServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>addres</servlet-name>
@@ -44,7 +63,7 @@
 
 	<servlet>
 		<servlet-name>addth</servlet-name>
-		<servlet-class>AddThServlet</servlet-class>
+		<servlet-class>ThreadServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>addth</servlet-name>
@@ -55,28 +74,21 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>ContentsList</servlet-name>
-		<jsp-file>/ContentsList.jsp</jsp-file>
+		<servlet-name>bdServlet</servlet-name>
+		<servlet-class>BdServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ContentsList</servlet-name>
-		<url-pattern>/ContentsList</url-pattern>
+		<servlet-name>bdServlet</servlet-name>
+		<url-pattern>/toppage</url-pattern>
 	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>sarch</servlet-name>
-		<servlet-class>ThSarchServlet</servlet-class>
+		<servlet-class>SarchServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>sarch</servlet-name>
 		<url-pattern>/sarch</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>rsarch</servlet-name>
-		<servlet-class>ResSarchServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>rsarch</servlet-name>
-		<url-pattern>/rsarch</url-pattern>
 	</servlet-mapping>
 
 </web-app>

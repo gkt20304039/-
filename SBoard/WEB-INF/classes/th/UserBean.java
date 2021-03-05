@@ -3,11 +3,20 @@ package th;
 import java.io.Serializable;
 
 public abstract class UserBean implements Serializable {
+	protected String bdID;
 	protected String id;
 	protected int num;
 	protected String name;
 	protected String date;
 	protected String text;
+
+    public void setBdID(String bdID) {
+        this.bdID = bdID;
+    }
+
+    public String getBdID() {
+        return bdID;
+    }
 	
 	public String getId() {
 		return id;
@@ -44,8 +53,4 @@ public abstract class UserBean implements Serializable {
 		this.text = text;
 	}
 
-	public void setAllContents(String id, String name){
-		setId(id);
-		setName(name);
-	}
 }

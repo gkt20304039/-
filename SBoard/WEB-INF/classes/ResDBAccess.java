@@ -7,10 +7,10 @@ import th.*;
 /* RESPONSE */
 class ResDBAccess extends DBAccess {
 	//ArrayListを使用
-    private ArrayList<ResBean> users = new ArrayList<ResBean>();
+    private ArrayList<ResBean> responses = new ArrayList<ResBean>();
 	
-	public ArrayList<ResBean> getUsers(){
-		return users;
+	public ArrayList<ResBean> getResponses(){
+		return responses;
 	}
 
 	public void oracleResInsert(String bdID, String thID) {
@@ -44,27 +44,31 @@ class ResDBAccess extends DBAccess {
 
 	public void oracleResSelect(String thID) {
 		try {
-			sql=" SELECT res_id, res_number, res_name, res_date,res_text FROM thread_response WHERE th_id ='" + thID + "' ORDER BY res_number ASC";
+			sql="SELECT res_id, res_name, TO_CHAR(res_date, 'YY-MM-DD HH:MM:SS'), res_number, res_text, th_name FROM thread_response JOIN thread_overview USING(th_id) WHERE th_id ='" + thID + "' ORDER BY res_number ASC";
 			
 			//Statementインターフェイスを実装するクラスをインスタンス化する
 			st=cn.createStatement();
 			rs=st.executeQuery(sql);
 
-			System.out.println("RES_ID"+"\t"+"RES_NUMBER"+"\t"+"RES_NAME"+"\t"+"RES_DATE"+"\t"+"RES_TEXT");
-			while(rs.next()){
-				//カーソルを一行だけスクロールし、データをフェッチする
-				id=rs.getString (1);	//1列目のデータを取得
-				num=rs.getInt (2);		//2列目のデータを取得
-				name=rs.getString(3);	//3列目のデータを取得
-                date=rs.getString(4);	//4列目のデータを取得
-                text=rs.getString(5);	//5列目のデータを取得
-				
-				//UserBeanをインスタンス化
-				ResBean user=new ResBean();
-				user.setAllContents(id, num, name, date, text);
-				//リストに追加する
-				users.add(user);
-			}
+			//sql文を実行してrsに格納したデータを取得する
+			dataFetch(responses, "Res");
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("SQL関連の例外みたい。");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void sarch(String thName, ArrayList responses, String type) {
+		try {
+			sql=" SELECT res_id, res_name, TO_CHAR(res_date, 'YY-MM-DD HH:MM:SS'), res_number, res_text FROM thread_response WHERE RES_TEXT like '%"+thName+"%' ORDER BY res_number ASC";
+			
+			//Statementインターフェイスを実装するクラスをインスタンス化する
+			st=cn.createStatement();
+			rs=st.executeQuery(sql);
+			
+			dataFetch(responses, type);
 		}catch(SQLException e){
 			e.printStackTrace();
 			System.out.println("SQL関連の例外みたい。");
@@ -101,6 +105,23 @@ class ResDBAccess extends DBAccess {
 
 			//SELECT
 			oracleResSelect(ID);
+
+			//oracleから切断
+			oracleDisConnect();
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public void serchResExecute(String name) {
+
+		try{
+			//oracleに接続
+			oracleConnect();
+
+			//検索
+			sarch(name, responses, "Res");
 
 			//oracleから切断
 			oracleDisConnect();
